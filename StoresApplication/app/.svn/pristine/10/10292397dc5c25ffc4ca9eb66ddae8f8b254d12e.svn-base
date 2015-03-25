@@ -1,0 +1,127 @@
+﻿using System;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+
+public partial class ChangePassword : System.Web.UI.Page
+{
+   // dataaccess dac = new dataaccess();
+    Businesslogic bll = new Businesslogic();
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        try
+        {
+  
+        }
+        catch (Exception ex)
+        {
+            bll.Message(ex.Message, true, Master, 1, true);
+        }
+    }
+
+
+
+    // ************************* REGION NUMBER ONE *************************
+
+    #region CLASS METHODS
+
+
+    // Business Logic Methods
+
+
+    // Database Get Methods
+
+
+    // Database Save Methods
+
+    private void GetEmployeeInfoNew()
+    {
+        //cboEmployee.DataSource = dac.GetActiveWebSystemUsers();
+        cboEmployee.DataTextField = "EmpName";
+        cboEmployee.DataValueField = "Serial";
+        cboEmployee.DataBind();
+    }
+
+    private void SavePassword()
+    {
+        string oldpsw = bll.Encryption(txtoldpw.Text.Trim(), bll.xEncrPass);
+        if (oldpsw != lblCodeNumber.Text && txtoldpw.Visible == true)
+        {
+            bll.Message("Type the correct old password", true, Master, 1, true);
+            txtoldpw.Text = "";
+        }
+        else
+        {
+            if (txtnewpw.Text.Trim() != txtconfirmpw.Text.Trim())
+            {
+                bll.Message("The confirming new password does not match your new password. Please type the password that matches.", true, Master, 1, true); 
+                txtconfirmpw.Text = "";
+            }
+            else
+            {
+                if (txtnewpw.Text.Trim() == "")
+                {
+                    bll.Message("Please Enter the New Password", true, Master, 1, true);
+                    txtconfirmpw.Text = "";
+                }
+                else
+                {
+                    string psw = bll.Encryption(txtnewpw.Text.Trim(), bll.xEncrPass);
+                    //dac.UpdatePassword(psw, lblEmpSerial.Text.Trim(), txtnewpw.Text.Trim());
+                    Session["PassWord"] = txtnewpw.Text.Trim();
+
+                    bll.Message("Password Changed", false, Master, 1, true);
+                }
+            }
+        }
+    }
+
+
+    #endregion
+
+    // *************************   END   *************************
+
+
+
+    // ************************* REGION NUMBER TWO *************************
+
+    #region CLASS EVENTS (ASP.NET CONTROL EVENTS)
+
+    protected void BtnSave_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            //SavePassword();
+        }
+        catch (Exception ex)
+        {
+            bll.Message(ex.Message, true, Master, 1, true);
+        }
+    }
+
+    protected void cboEmployee_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            lblEmpSerial.Text = cboEmployee.SelectedValue;
+            lblSelectedEmployeeName.Text = cboEmployee.SelectedItem.Text;
+        }
+        catch (Exception ex)
+        {
+            bll.Message(ex.Message, true, Master, 1, true);
+        }
+    }
+
+    #endregion
+
+    // *************************   END   *************************
+
+
+}

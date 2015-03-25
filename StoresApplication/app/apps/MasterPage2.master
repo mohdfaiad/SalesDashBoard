@@ -1,0 +1,256 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage2.master.cs" Inherits="MasterPage2" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<head id="Head1" runat="server">
+    <title>Stores Management</title>
+    
+    <link href="styles.css" rel="Stylesheet" type="text/css" />
+    <link href="accordion.css" rel="stylesheet" type="text/css" />
+    <link href="accordion1.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" type="text/javascript">
+document.onkeydown = haltBackspace;
+function haltBackspace() {
+        var srcele = window.event.srcElement;
+        if (window.event && window.event.keyCode == 8 && srcele.tagName != "INPUT") || (window.event || window.event.keyCode == 13 || srcele.tagName != "INPUT") {
+           if (srcele.tagName != "TEXTAREA")
+                return false;
+        }
+        if (window.event &&  window.event.keyCode == 13 ) {
+               return false;
+        }
+    }
+    </script>
+    <script language="javascript" type="text/javascript">
+        var oldgridSelectedColor;
+
+        function setMouseOverColor(element) {
+            oldgridSelectedColor = element.style.backgroundColor;
+            element.style.backgroundColor = 'bfddf5';
+            element.style.cursor = 'hand';
+            element.style.textDecoration = 'underline';
+        }
+
+        function setMouseOutColor(element) {
+            element.style.backgroundColor = oldgridSelectedColor;
+            element.style.textDecoration = 'none';
+        }
+
+        function setMouseOverColor2(element) {
+            oldgridSelectedColor = element.style.backgroundColor;
+            element.style.backgroundColor = 'bfddf5';
+            element.style.cursor = 'hand';
+            element.style.textDecoration = 'underline';
+        }
+
+        function setMouseOutColor2(element) {
+            element.style.backgroundColor = oldgridSelectedColor;
+            element.style.textDecoration = 'none';
+        }
+
+    </script>
+    <script type="text/javascript" language="JavaScript">
+        function openph(url) {
+            var url1 = url;
+            window.open(url1, "", "location=0,status=0,scrolbar=yes, titlebar=no, toolbar=no, menubar=no,width=400,height=710%");
+        }
+    </script>
+    <script language="javascript" type="text/javascript">
+        function ClearHistory() {
+            var Backlen = history.length; history.go(-Backlen);
+
+            window.location.href = "login.aspx";
+
+        }
+        window.history.forward();
+        function noBack() { window.history.forward(); }
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+
+<%--  ADDED TO ACCOMODATE THE NEW NON-CUSTOM INSPIRE MENU --%><%--  ====================================================================================================== --%><%--  ====================================================================================================== --%><%--  ====================================================================================================== --%><%--  ====================================================================================================== --%>
+
+  
+    <link href="Styles2/css/GeneralStyles.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="Styles2/css/ddcolortabs.css" />
+	<script type="text/javascript" src="Styles2/javascript/ddtabmenu.js"> </script>
+
+<script type="text/javascript">
+    //SYNTAX: ddtabmenu.definemenu("tab_menu_id", integer OR "auto")
+    ddtabmenu.definemenu("ddtabs1", 0) //initialize Tab Menu #1 with 1st tab selected
+    ddtabmenu.definemenu("ddtabs2", 1) //initialize Tab Menu #2 with 2nd tab selected
+    ddtabmenu.definemenu("ddtabs3", 1) //initialize Tab Menu #3 with 2nd tab selected
+    ddtabmenu.definemenu("ddtabs4", 2) //initialize Tab Menu #4 with 3rd tab selected
+    ddtabmenu.definemenu("ddtabs5", -1) //initialize Tab Menu #5 with NO tabs selected (-1)
+
+</script>
+
+
+
+	<link rel="stylesheet" type="text/css" href="sdmenu/sdmenu.css" />
+	<script type="text/javascript" src="sdmenu/sdmenu.js">
+	    /***********************************************
+	    * Slashdot Menu script- By DimX
+	    * Submitted to Dynamic Drive DHTML code library: http://www.dynamicdrive.com
+	    * Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+	    ***********************************************/
+	</script>
+	<script type="text/javascript">
+	// <![CDATA[
+	    var myMenu;
+	    window.onload = function () {
+	        myMenu = new SDMenu("my_menu");
+	        myMenu.init();
+	    };
+	// ]]>
+	</script>
+
+<%--  ====================================================================================================== --%><%--  ====================================================================================================== --%><%--  ====================================================================================================== --%><%--  ====================================================================================================== --%>
+
+
+    </head>
+
+
+
+
+<body>
+    <form id="form1" runat="server">
+    <div class="maindiv">
+        <div class="toper">toplinks
+            <div>
+                <table cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td>
+                            <div class="">
+                                <asp:Label ID="lblUser" runat="server" Font-Bold="True">Welcome : GILBERT GAHUNDE</asp:Label></div>
+                        </td>
+                        <td style="width: 15px">
+                            &nbsp;
+                        </td>
+                        <td>
+                            <div class="toplinks">
+                                <asp:LinkButton ID="lnkHome" runat="server" Text="Home" Font-Underline="false" 
+                                    onclick="lnkHome_Click"></asp:LinkButton>
+                            </div>
+                        </td>
+                        <td style="width: 15px">
+                            &nbsp;
+                        </td>
+                        <td>
+                            <div class="toplinks">
+                                <asp:LinkButton ID="lnkLogout" runat="server" Text="Logout" 
+                                    Font-Underline="false" onclick="lnkLogout_Click"></asp:LinkButton>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+       <div>
+           
+            <table cellpadding="0" cellspacing="0" 
+                class="ThirdTableRow5_FirstTableColumn3_FirstTableSecondTable">
+                <tr>
+                    <td>
+
+                         <table cellpadding="0" cellspacing="0" width="100%">
+                <tr>
+                    <td style="width: 200px">
+                        <div class="logo">
+                            <asp:Image ID="Image1" runat="server" Height="45px" ImageUrl="~/Images/3.jpg" 
+                                Width="243px" />
+                        </div>
+                    </td>
+                    <td valign="top" align="left" class="titletext">
+                        STORES Management System 
+                    </td>
+                </tr>
+            </table>
+                        
+                        
+                        </td>
+                </tr>
+                <tr>
+                    <td style="text-align: center">
+                        <asp:Label ID="lblmsg" runat="server" Font-Bold="True" 
+                            Font-Size="9pt" ForeColor="Red" 
+                            Text="SYSTEM ERROR..................Cannot Connect to Remote Database....................." 
+                            Visible="False"></asp:Label>
+                    </td>
+                </tr>
+            </table>
+           
+        </div>
+        <div class="topbar">
+        </div>
+        <div class="container">
+            <table cellpadding="0" cellspacing="0" style="width: 100%; height: 100%">
+                <tr>
+                    <td valign="top" class="leftmenu" id="sbCont">
+                       
+                       
+                       <table border="0" cellpadding="0" cellspacing="0" class="MenuTable" style="width: 100%">
+                                                                        <tr>
+                                                                            <td colspan="2" style="padding-bottom: 5px; vertical-align: top; text-align: left">
+                                                                                <table border="0" cellpadding="0" cellspacing="0" style="border-right: #85b1ee 1px solid;
+                                                                                    border-top: #85b1ee 1px solid; border-left: #85b1ee 1px solid; width: 100%; border-bottom: #85b1ee 1px solid">
+                                                                                    <tr>
+                                                                                        <td style="vertical-align: top; text-align: left">
+                                                                                        
+                                                                                        
+                                                <div id="my_menu" class="sdmenu" style="float: left; height: 150px">
+                                                    <div class="collapsed">
+                                                        <span style="background-image: url(Styles2/images/menubar21.png); background-repeat: repeat;
+                                                            background-color: #690035">DASH-BOARD </span> <a href="#">xx xxxxx xxxxxxx
+                                                                </a>
+                                                    </div>
+                                                    <div class="collapsed">
+                                                        <span style="background-image: url(Styles2/images/menubar21.png); background-repeat: repeat;
+                                                            background-color: #690035">REPORTS </span>
+                                                                <a href="#">xx xxxxx xxxxxxx
+                                                                </a>
+                                                    </div>
+                                                    <div class="collapsed">
+                                                        <span style="background-image: url(Styles2/images/menubar21.png); background-repeat: repeat;
+                                                            background-color: #690035">CONTROL PANEL </span>
+                                                         <a href="#">xx xxxxx xxxxxxx
+                                                                </a>
+                                                </div>
+                                                                                                                                        
+                                                                                            
+                                                                                        </td>
+                                                                                    </tr>
+                                                                                </table>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </table>
+
+
+                       
+                       
+                       </td>
+                    <td class="leftbar">
+                    </td>
+                    <td valign="top" class="contentarea">
+                        <div>
+                            <asp:ContentPlaceHolder ID="cph2" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </td>
+                    <td class="rightbar">
+                        &nbsp;
+                    </td>
+                </tr>
+            </table>
+        
+        </div>
+    </div>
+ 
+    </form>
+</body>
+</html>

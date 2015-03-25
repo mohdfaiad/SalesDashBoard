@@ -1,0 +1,301 @@
+﻿using System;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using System.Net.Mail;
+using System.IO;
+using System.Text.RegularExpressions;
+using System.Security.Cryptography;
+
+
+public class Businesslogic
+
+{
+    DatabaseHandler dac = new DatabaseHandler();
+
+    public void Message(string GetMessage, bool ColorRed, MasterPage M, int Nesting, bool ShowMessage)
+    {
+        try
+        {
+            Label msg;
+            if (ShowMessage == true)
+            {
+                if (Nesting == 1) { msg = (Label)M.FindControl("lblmsg"); } else { msg = (Label)M.Master.FindControl("lblmsg"); }
+                msg.Visible = true;
+                if (ColorRed == true) { msg.ForeColor = System.Drawing.Color.Red; msg.Font.Bold = true; }
+                else { msg.ForeColor = System.Drawing.Color.Green; msg.Font.Bold = true; }
+                msg.Text = "MESSAGE:  ............" + GetMessage + "............";
+            }
+            else
+            {
+                if (Nesting == 1) { msg = (Label)M.FindControl("lblmsg"); } else { msg = (Label)M.Master.FindControl("lblmsg"); }
+                msg.Visible = false;
+                msg.Text = "";
+            }
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+
+
+    public bool IsValidEmailAddress(string sEmail)
+    {
+        if (sEmail == null)
+        {
+            return false;
+        }
+        else
+        {
+            return Regex.IsMatch(sEmail, @"
+               ^
+               [-a-zA-Z0-9][-.a-zA-Z0-9]*
+               @
+               [-.a-zA-Z0-9]+
+               (\.[-.a-zA-Z0-9]+)*
+               \.
+               (
+               com|edu|info|gov|int|mil|net|org|biz|
+               name|museum|coop|aero|pro
+               |
+               [a-zA-Z]{2}
+               )
+               $",
+            RegexOptions.IgnorePatternWhitespace);
+        }
+    }
+
+    #region GET MONEY IN WORDS
+
+    private string PutComma(string s)
+    {
+        try
+        {
+            string word = "";
+            int index = s.Length - 1;
+            for (int i = 1; i <= s.Length && index >= 0; i++, index--)
+            {
+                if (i % 3 == 0 && index != 0) word = "," + s[index] + word;
+                else word = s[index] + word;
+            }
+            return word;
+        }
+        catch (Exception ex)
+        {
+            throw ex;
+        }
+    }
+
+    private string[] Split(string s)
+    {
+        int index = s.Length - 1;
+        int arrayIndex = 0;
+        string word = "";
+        string[] sets = new string[5];
+
+        for (int i = 1; i <= s.Length && index >= 0; i++, index--)
+        {
+            if (i % 3 == 0 && index != 0)
+            {
+                word = s[index] + word;
+                sets[arrayIndex] = word;
+                arrayIndex++;
+                word = "";
+            }
+            else
+            {
+                word = s[index] + word;
+                sets[arrayIndex] = word;
+            }
+        }
+        return sets;
+    }
+
+    public string ComputeFinalWord(string s)
+    {
+        int index = 4;
+        string finalword = "";
+        string[] str = new string[5];
+        str = Split(s);
+        string[] group = { " Trillion, ", " Billion, ", " Million, ", " Thousand, ", "" };
+
+        for (int i = 0; i < 5; i++)
+        {
+            if (str[i] != null && Convert.ToInt32(str[i]) != 0)
+            {
+                finalword = ComputeWord(str[i]) + group[index] + finalword;
+                index--;
+            }
+            else index--;
+        }
+        return finalword;
+    }
+
+    private string ComputeWord(string word)
+    {
+        if (word.Length == 3)
+        {
+            if (word[0] != '0')
+            {
+                if (word[1] != '1') return GetOnes(word[0]) + " Hundred " + GetTens(word[1]) + " " + GetOnes(word[2]);
+                else return GetOnes(word[0]) + " Hundred " + GetTenScale(word[2]);
+            }
+            else
+            {
+                if (word[1] != '1') return GetOnes(word[0]) + " " + GetTens(word[1]) + " " + GetOnes(word[2]);
+                else return GetOnes(word[0]) + " " + GetTenScale(word[2]);
+            }
+        }
+        if (word.Length == 2)
+        {
+            if (word[0] != '1') return GetTens(word[0]) + " " + GetOnes(word[1]);
+            else return GetTenScale(word[1]);
+        }
+        if (word.Length == 1) return GetOnes(word[0]);
+        else return "";
+    }
+
+    private string GetOnes(char s)
+    {
+        switch (s)
+        {
+            case '0': return "";
+            case '1': return "One ";
+            case '2': return "Two ";
+            case '3': return "Three ";
+            case '4': return "Four ";
+            case '5': return "Five ";
+            case '6': return "Six ";
+            case '7': return "Seven ";
+            case '8': return "Eight ";
+            case '9': return "Nine ";
+            default: return "";
+        }
+    }
+
+    private string GetTens(char s)
+    {
+        switch (s)
+        {
+            case '0': return "";
+            case '2': return "Twenty ";
+            case '3': return "Thirty ";
+            case '4': return "Fourty ";
+            case '5': return "Fifty ";
+            case '6': return "Sixty ";
+            case '7': return "Seventy ";
+            case '8': return "Eighty ";
+            case '9': return "Ninety ";
+            default: return "";
+        }
+    }
+
+    private string GetTenScale(char s)
+    {
+        switch (s)
+        {
+            case '0': return "Ten";
+            case '1': return "Eleven ";
+            case '2': return "Twelve ";
+            case '3': return "Thirteen ";
+            case '4': return "Fourteen ";
+            case '5': return "Fifteen ";
+            case '6': return "Sixteen ";
+            case '7': return "Seventeen ";
+            case '8': return "Eighteen ";
+            case '9': return "Nineteen ";
+            default: return "";
+        }
+    }
+
+    #endregion
+
+    #region PASSWORD ENCRYPRION FUNCTION
+
+    public string xEncrPass = "TBL@HURIS";
+
+    public string Encryption(string clearText, string Password)
+    {
+        byte[] clearBytes = System.Text.Encoding.Unicode.GetBytes(clearText);
+        PasswordDeriveBytes pdb = new PasswordDeriveBytes(Password, new byte[] {
+		73,
+		118,
+		97,
+		110,
+		32,
+		77,
+		101,
+		100,
+		118,
+		101,
+		100,
+		101,
+		118
+	});
+        byte[] encryptedData = Encrypt(clearBytes, pdb.GetBytes(32), pdb.GetBytes(16));
+        return Convert.ToBase64String(encryptedData);
+    }
+
+    public string Decryption(string cipherText, string Password)
+    {
+
+        byte[] cipherBytes = Convert.FromBase64String(cipherText);
+        PasswordDeriveBytes pdb = new PasswordDeriveBytes(Password, new byte[] {
+		73,
+		118,
+		97,
+		110,
+		32,
+		77,
+		101,
+		100,
+		118,
+		101,
+		100,
+		101,
+		118
+	});
+        byte[] decryptedData = Decrypt(cipherBytes, pdb.GetBytes(32), pdb.GetBytes(16));
+        return System.Text.Encoding.Unicode.GetString(decryptedData);
+    }
+
+    public static byte[] Encrypt(byte[] clearData, byte[] Key, byte[] IV)
+    {
+        MemoryStream ms = new MemoryStream();
+        Rijndael alg = Rijndael.Create();
+        alg.Key = Key;
+        alg.IV = IV;
+        CryptoStream cs = new CryptoStream(ms, alg.CreateEncryptor(), CryptoStreamMode.Write);
+        cs.Write(clearData, 0, clearData.Length);
+        cs.Close();
+        byte[] encryptedData = ms.ToArray();
+        return encryptedData;
+    }
+
+    public static byte[] Decrypt(byte[] cipherData, byte[] Key, byte[] IV)
+    {
+        MemoryStream ms = new MemoryStream();
+        Rijndael alg = Rijndael.Create();
+        alg.Key = Key;
+        alg.IV = IV;
+        CryptoStream cs = new CryptoStream(ms, alg.CreateDecryptor(), CryptoStreamMode.Write);
+        cs.Write(cipherData, 0, cipherData.Length);
+        cs.Close();
+        byte[] decryptedData = ms.ToArray();
+
+        return decryptedData;
+    }
+
+    #endregion
+
+
+
+}

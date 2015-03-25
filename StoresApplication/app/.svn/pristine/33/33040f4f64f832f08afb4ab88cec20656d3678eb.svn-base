@@ -1,0 +1,93 @@
+﻿using System;
+using System.Data;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+
+public partial class ForgetRecover : System.Web.UI.Page
+{
+    DatabaseHandler dac = new DatabaseHandler();
+    Businesslogic bll = new Businesslogic();
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        lblmsg.Visible = false;
+
+        try
+        {
+            if (IsPostBack == false)
+            {
+
+            }
+        }
+        catch (Exception ex)
+        {
+            lblmsg.Visible = true;
+            lblmsg.ForeColor = System.Drawing.Color.Red;
+            lblmsg.Text = ex.Message;
+        }
+    }
+
+    protected void BtnLogin_Click(object sender, EventArgs e)
+    {
+        //try
+        //{
+        //    if (txtusername.Text.Trim() == "")
+        //    {
+        //        lblmsg.Visible = true;
+        //        lblmsg.ForeColor = System.Drawing.Color.Red;
+        //        lblmsg.Text = ".........Enter the Username........";
+        //    }
+        //    else 
+        //    {
+        //        DataTable dtGetEmpSerialByUserName = dac.GetEmpSerialByUserName(txtusername.Text.Trim());
+
+        //        if (dtGetEmpSerialByUserName.Rows.Count == 0)
+        //        {
+        //            lblmsg.Visible = true;
+        //            lblmsg.ForeColor = System.Drawing.Color.Red;
+        //            lblmsg.Text = ".........Invalid Username. Please Enter correct Username........";
+        //        }
+        //        else 
+        //        {
+        //            string NewPassword = GetNewPassword();
+
+        //            string psw = bll.Encryption(NewPassword, bll.xEncrPass);
+        //           // dac.UpdatePassword(psw, txtusername.Text.Trim(), NewPassword);
+
+        //            lblmsg.Visible = true;
+        //            lblmsg.ForeColor = System.Drawing.Color.Green;
+        //            lblmsg.Text = ".........Password Successfully Recovered.......";
+        //            txtusername.Text = "";
+        //        }
+        //    }
+        //}
+        //catch (Exception ex)
+        //{
+        //    lblmsg.Visible = true;
+        //    lblmsg.ForeColor = System.Drawing.Color.Red;
+        //    lblmsg.Text = ex.Message;
+        //}
+    }
+
+    private string GetNewPassword()
+    {
+        int min = 10000;
+        int max = 99999;
+        Random random = new Random();
+        int Pass = random.Next(min, max);
+        string Password = Pass.ToString();
+
+        return Password;
+    }
+
+    protected void forgetpass_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("Login.aspx");
+    }
+}

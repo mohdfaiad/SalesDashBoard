@@ -1,0 +1,671 @@
+﻿
+
+/* ######### MASTER PAGE STYLES ######### */
+
+body 
+{
+	margin:0;
+	padding:0;
+	border:none;
+	background-color: #f8f8ff; 
+}
+
+/* ######### WIDTH ######### */
+
+
+/* ######### CONTENT PLACE HOLDER TABLE ######### */
+
+
+
+	
+/* ######### END ######### */	
+
+.ItemSubMenu
+{
+	background-color: Black; 
+	color: Black; 
+	text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+.MenuTable
+{
+	VERTICAL-ALIGN: top; 
+	TEXT-ALIGN: left;
+    padding: 0px 6px 0px 6px;
+}
+
+.PageHeaderTable 
+{
+	background-color: #f3efe0;
+}
+
+
+.ThirdTableRow5_FirstTableColumn3_FirstTable
+{
+	background-color: #f3efe0; /* F5F6F8 */
+	WIDTH: 100%;
+	border: solid 1px #dcdcdc; /* 617DA6 f8f8f8*/
+}
+
+.ThirdTableRow5_FirstTableColumn3_FirstTableRow
+{
+	VERTICAL-ALIGN: top;
+	text-align: left;
+}
+
+.ThirdTableRow5_FirstTableColumn3_FirstTableSecondTable
+{
+	WIDTH: 99%;
+}
+
+.ThirdTableRow5_FirstTableColumn3_FirstTableSecondTableCol1
+{
+	background-color: #5695da;
+	height: 1px;
+}
+.ThirdTableRow5_FirstTableColumn3_FirstTableSecondTableCol2
+{
+	background-color: #5695da;
+	height: 30px;
+	color: White;
+	font: bold 14px cambria;
+}
+.ThirdTableRow5_FirstTableColumn3_FirstTableSecondTableCol3
+{
+	background-color: White;
+	height: 3px;
+}
+.ThirdTableRow5_FirstTableColumn3_FirstTableSecondTableCol4
+{
+	background-color: #5695da;
+	height: 3px;
+	
+}
+
+.ThirdTableRow5_FirstTableColumn3_FirstTableSecondTableCol5
+{
+
+}
+
+.ThirdTableRow5_FirstTableColumn3_FirstTableSecondTableCol5Table
+{
+	width: 102%;
+}
+
+.ThirdTableRow5_FirstTableColumn3_FirstTableSecondTableCol5TableSeparator
+{
+	height: 10px;
+}
+
+.ThirdTableRow5_FirstTableColumn3_FirstTableSecondTableCol5TableCol1
+{
+	width: 1%;
+	height: 25px
+}
+
+.ThirdTableRow5_FirstTableColumn3_FirstTableSecondTableCol5TableCol2
+{
+	width: 24%;
+	VERTICAL-ALIGN: top;
+	text-align: left;
+    font-family: Cambria;
+    color: #333; 
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+.ThirdTableRow5_FirstTableColumn3_FirstTableSecondTableCol5TableCol3
+{
+	width: 75%;
+	VERTICAL-ALIGN: top;
+	text-align: left;
+}
+
+.ErrorMessageTable
+{
+	width: 100%;	
+}
+.ErrorMessageTableRow1
+{
+    height: 10px;
+}
+
+.loggedInMainTable
+{
+	BORDER-RIGHT: #85b1ee 1px solid; 
+	BORDER-TOP: #85b1ee 1px solid; 
+	BORDER-LEFT: #85b1ee 1px solid; 
+	BORDER-BOTTOM: #85b1ee 1px solid; 
+	PADDING-RIGHT: 2px; 
+	PADDING-LEFT: 4px; 
+	PADDING-TOP: 4px; 
+		
+	WIDTH: 100%; 
+	HEIGHT: 550px; 
+	BACKGROUND-COLOR: ghostwhite;
+	
+	}
+
+.Hysys
+{
+	/* (Arial,Tahoma,Verdana,sans-serif), Algerian Britannic Bold Castellar Wide Latin #e5e6e8 
+
+       italic   normal
+ */
+
+    font-family: Britannic Bold;
+    color: #617DA6;
+    font-size: 20pt;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.Hysys2
+{
+    font-size: 10pt;
+    font-style: normal;
+}
+
+
+.ErrorMessageTableRow2
+{
+	VERTICAL-ALIGN: top;
+	text-align: center;
+    font-family: Arial,Tahoma,Verdana,sans-serif;
+    color: Red; 
+    font-size: 8pt;
+}
+
+.ErrorMessageTableRow3
+{
+	height: 10px;
+}
+
+.leftnav
+{
+	width: 98%;
+    padding: 3px 10px 0px 5px;
+    font-family: Tahoma;
+    font-weight: normal;
+    font-size: 8pt;
+    text-align: left;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.leftnav a
+{
+    color: #617DA6;
+}
+
+.leftnav a:hover
+{
+    color: #ff9900;
+}
+
+.logoutbutton
+{
+	
+    padding: 3px 10px 0px 5px;
+    font-family: Tahoma;
+    font-weight: normal;
+    font-size: 8pt;
+    text-align: left;
+    font-weight: bold;
+    color: #617DA6;
+	
+	}
+
+
+/* ######### SITE PAGE HEADER FORM ######### */
+
+.PageHeaderTable
+{
+	
+	border-top: #B1B5B9 1px solid;
+	border-left: #B1B5B9 1px solid;
+	border-right: #B1B5B9 1px solid;
+	border-bottom: #B1B5B9 1px solid;
+	
+}
+
+.PageHeaderTableHeaderRow
+{
+	text-align : left;
+	padding-left: 5px;
+}
+
+.PageHeaderTableContentRow
+{
+	 text-align : left;
+	 padding: 5px;
+	 height: 20px;
+	 font-size : 8pt;
+     font-family : Arial, Helvetica, sans-serif;
+     font-weight : normal;
+}
+
+.PageHeaderSearchTableContentRow
+{
+	 text-align : center;
+	 font-size : 9pt;
+     font-family : Cambria;
+     font-weight : bold;
+     padding: 10px 0px 10px 0px;
+}
+
+.PageHeaderSearchTableContainerTable
+{
+	  width: 100%;
+}
+
+.PageHeaderSearchTableRowSeparator
+{
+	  height: 0px;
+}
+
+/* ######### SITE MAIN ENTRY DATA FORM ######### */
+
+.OuterTableRowSeparators
+{
+	height: 20px;
+}
+
+.DataEntryFormTable
+{
+	border-top: #B1B5B9 1px solid;
+	border-left: #B1B5B9 1px solid;
+	border-right: #B1B5B9 1px solid;
+}
+
+.DataEntryFormTableNew
+{
+	
+/*border-top: #dcdcdc 1px solid; 0F2543 EFEFEF */
+	border-left: #B1B5B9 1px solid;
+	border-right: #B1B5B9 1px solid; 
+	
+	background-color: #f3efe0; /* F5F6F8 dcdcdc f5f5f5 e5e6e8 f3efe0  */
+}
+
+.TableHeader
+{
+	font-family : cambria;
+    font-size : 9pt;
+    font-weight : bold;
+    background-color : #f3efe0;
+    height: 25px;
+    font-weight: bold;
+}
+
+.TableHeaderNew
+{
+	font-family : cambria;
+    font-size : 10pt;
+    font-weight : bold;
+    background-color : #5695da;
+    color : white;
+    height: 25px;
+}
+
+.TableHeaderExtra
+{
+	text-transform: uppercase;
+}
+
+.TableHeaderExtraNew
+{
+	border-color: #5695da; /* b1b5b9*/
+	border-style: solid;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-right-width: 0px;
+	border-top-width: 0px;
+	
+	text-transform: uppercase;
+}
+
+.DataEntryFormTableHeader
+{
+	 text-align : center;
+}
+
+.DataEntryFormTableColumn1
+{
+	height: 25px;
+	width: 1%;	
+	border-bottom: #B1B5B9 1px solid;
+}
+
+.DataEntryFormTableColumn2
+{
+	border-bottom: #B1B5B9 1px solid;
+	border-right: #B1B5B9 1px solid;
+	text-align : left;
+    vertical-align: top;
+    font-size : 9pt;
+    font-family : cambria; /* (Arial, Helvetica, sans-serif) */
+    font-weight : normal;
+    padding: 2px 0px 2px 0px;
+}
+
+.DataEntryFormTableColumn2Test
+{
+	height: 25px;
+	width: 12%;
+	
+	border-bottom: #B1B5B9 1px solid;
+	border-right: #B1B5B9 1px solid;
+	text-align : center;
+    vertical-align: middle;
+    font-size : 9pt;
+    font-family : cambria; /* (Arial, Helvetica, sans-serif) */
+    font-weight : normal;
+    padding: 2px 2px 2px 2px;
+}
+
+.DataEntryFormTableColumn2Test1
+{
+	height: 25px;
+	width: 2%;
+	
+	border-bottom: #B1B5B9 1px solid;
+	border-right: #B1B5B9 1px solid;
+	text-align : center;
+    vertical-align: middle;
+    font-size : 9pt;
+    font-family : cambria; /* (Arial, Helvetica, sans-serif) */
+    font-weight : normal;
+    padding: 2px 2px 2px 2px;
+}
+
+.DataEntryFormTableColumn2Test2
+{
+	height: 25px;
+	width: 2%;
+	
+	border-bottom: #B1B5B9 1px solid;
+	border-right: #B1B5B9 1px solid;
+	text-align : center;
+    vertical-align: middle;
+    font-size : 9pt;
+    font-family : cambria; /* (Arial, Helvetica, sans-serif) */
+    font-weight : normal;
+    padding: 2px 2px 2px 2px;
+}
+
+
+.DataEntryFormTableNewTest
+{
+	
+   /* border-top: #dcdcdc 1px solid; 0F2543 EFEFEF */
+	border-left: #B1B5B9 1px solid;
+	/* border-right: #B1B5B9 1px solid; */
+	
+	background-color: #f3efe0; /* F5F6F8 dcdcdc f5f5f5 e5e6e8 f3efe0  */
+}
+
+.DataEntryFormTableColumn3
+{
+	width: 1%;	
+	border-bottom: #B1B5B9 1px solid;
+}
+
+.DataEntryFormTableColumn4
+{
+	width: 70%;	
+	border-bottom: #B1B5B9 1px solid;
+	text-align : left;
+    vertical-align: top;
+    padding: 2px 0px 2px 0px;
+}
+
+.DataEntryFormTableColumn5
+{
+	width: 3%;		
+	border-bottom: #B1B5B9 1px solid;
+	text-align : left;
+    vertical-align: middle;
+}
+
+.DataEntryFormTableButtons
+{
+	font-size : 8pt;
+    font-family : Arial, Helvetica, sans-serif;
+    width: 100px;
+    
+}
+
+.DataEntryFormTableButtonRow
+{
+	text-align : left;
+    vertical-align: middle;
+	Height: 60px;
+	border-bottom: #B1B5B9 1px solid;
+	border-right: #B1B5B9 1px solid;
+}
+
+.DataEntryFormTableButtonRowTable
+{
+	text-align : left;
+    vertical-align: middle;
+	Height: 60px;
+	border-top: #B1B5B9 1px solid;
+	border-bottom: #B1B5B9 1px solid;
+	border-right: #B1B5B9 1px solid;
+}
+
+.DataEntryFormTableTextboxView
+{
+	font-size : 8pt;
+    font-family : Arial, Helvetica, sans-serif;
+    height: 14px;
+    border: #7F9DB9 1px solid;
+    font-weight: bold; 
+    background-color: #f5f5f5;
+    border: #f5f5f5;
+}
+
+.DataEntryFormTableTextbox
+{
+	font-size : 8pt;
+    font-family : Arial, Helvetica, sans-serif;
+    height: 14px;
+    border: #7F9DB9 1px solid;
+    font-weight: bold;  
+    background-color: #f8f8ff; /*LightGoldenrodYellow */
+}
+
+.DataEntryFormTableTextboxWidth
+{
+	width: 90%;
+}
+
+.ViewData
+{
+	background-color: #f5f5f5;
+	border: solid 1px #f5f5f5;
+	width: 98%;
+}
+
+.GridFilters
+{
+	vertical-align : middle; 
+	text-align: center; 
+}
+
+.SystemDropdownListSearchTable
+{
+	border: #7F9DB9 1px solid;
+	font-size : 8pt;
+    font-family : Arial, Helvetica, sans-serif;
+	height: 17px;
+	font-weight: normal;
+	background-color: #f8f8ff;
+}
+
+.SystemDropdownListOthers
+{
+	border: #7F9DB9 1px solid;
+	height: 17px;
+	font-family: Trebuchet MS, Verdana, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	background-color: #f8f8ff;
+}
+
+.filterControlsWidth
+{
+	width: 90%;
+}
+
+.CenterTextBoxText
+{
+	text-align: center;
+	}
+	
+	.TopRedirectTable
+{
+	border-bottom: #B1B5B9 1px solid;
+	border-top: #B1B5B9 1px solid;
+	padding: 3px 0px 3px 0px;
+}
+
+
+/* ######### SITE GRID ######### */
+
+.GridHeaderStyle
+{
+    font-family  : Cambria;
+    font-size : 8pt;
+    font-weight : bold;
+    background-color : #d6d4f5; /* #0070B9; */
+    color : black;
+	vertical-align: middle; 
+	text-align: left;
+	height: 18px;
+	border-color: #e5e6e8;
+	border-style: solid;
+	border-bottom-width: 1px;
+	border-left-width: 0px;
+	border-right-width: 0px;
+	border-top-width: 0px;	
+	
+	VERTICAL-ALIGN: middle; 
+	TEXT-ALIGN: left;
+	height: 18px;
+    text-transform: uppercase;
+	
+}
+
+.GridHeaderStyleExtra
+{
+    text-decoration: underline;
+    
+    }
+
+.GridFooterStyle
+{
+	background-color: #5D7B9D;
+	font-weight : bold;
+	color: White;
+}
+
+.GridEditItemStyle
+{
+	background-color: #999999;
+}
+
+.GridSelectedItemStyle
+{
+	background-color: #E2DED6;
+	font-weight : bold;
+	text-decoration: underline;
+	color: #333333;
+}
+
+.GridPagerStyle
+{
+	background-color: #284775;
+	color: White;
+	text-align: center;
+}
+
+.GridItemStyle
+{
+	background-color: White;
+	color: #284775;
+}
+
+.GridAlternatingItemStyle
+{
+	background-color: #F7F6F3;
+	color: #333333;
+}
+
+.GridRows
+{
+	font-family: tahoma,sans-serif; 
+    font-size: 8pt;
+    height: 15px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.GridButtonColumnItemStyle
+{
+	text-decoration: underline;
+	font-size : 8pt;	
+}
+
+.UpdatePanelLabel
+{
+	font-family: Cambria;
+    font-size: 12pt;
+	font-weight: bold;
+	color: #002061;	
+}
+
+/************ ajax calendar ***********************/
+
+.MyCalendar .ajax__calendar_container {
+    border:1px solid #646464;
+    background-color: lemonchiffon;
+    color: blue;
+}
+.MyCalendar .ajax__calendar_other .ajax__calendar_day,
+.MyCalendar .ajax__calendar_other .ajax__calendar_year {
+    color: black;
+}
+.MyCalendar .ajax__calendar_hover .ajax__calendar_day,
+.MyCalendar .ajax__calendar_hover .ajax__calendar_month,
+.MyCalendar .ajax__calendar_hover .ajax__calendar_year {
+    color: black;
+}
+.MyCalendar .ajax__calendar_active .ajax__calendar_day,
+.MyCalendar .ajax__calendar_active .ajax__calendar_month,
+.MyCalendar .ajax__calendar_active .ajax__calendar_year {
+    color: black;
+    font-weight:bold;
+}
+
+
+
+
+/* ######### OTHER STUFF ######### */
+
+
+
+
+
+
+
+
+	
+
+
+	
+	

@@ -1,0 +1,67 @@
+
+DIV.sdmenu
+{
+	font-size: 12px;
+	font-weight: bold;
+	background: url(bottom1.gif) no-repeat right bottom;
+	padding-bottom: 10px;
+	width: 100%;
+	color: #ff6347;
+	font-family: Cambria;
+}
+DIV.sdmenu DIV
+{
+    BACKGROUND: url(title.gif) repeat-x;
+    OVERFLOW: hidden
+}
+DIV.sdmenu DIV:first-child
+{
+    BACKGROUND: url(title.gif) repeat-x
+}
+DIV.sdmenu DIV.collapsed
+{
+    HEIGHT: 35px
+}
+DIV.sdmenu DIV SPAN
+{
+	padding-right: 1px;
+	padding-left: 8px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	
+	display: block;
+	font-weight: bold;
+	font-size: 10pt;
+	background: url(expanded.gif) no-repeat 10px center;
+	cursor: default;
+	COLOR:  black;   /* #002061 */
+	border-bottom: #ddd 1px solid;
+	/*text-decoration: underline; */
+}
+
+DIV.sdmenu DIV.collapsed SPAN
+{
+    BACKGROUND-IMAGE: url(collapsed.gif)
+}
+DIV.sdmenu DIV A
+{
+	padding-right: 10px;
+	display: block;
+	padding-left: 10px;
+	background: #eee;
+	padding-bottom: 5px;
+	color: midnightblue;
+	padding-top: 5px;
+	border-bottom: #ddd 1px solid;
+	text-decoration: none;
+}
+DIV.sdmenu DIV A.current
+{
+	background: #d6dff7;
+}
+DIV.sdmenu DIV A:hover
+{
+	background: #d6dff7;
+	color: blue;
+	text-decoration: none;
+}

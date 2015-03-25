@@ -1,0 +1,104 @@
+﻿using System;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+using System.Collections;
+using System.Web;
+using System.Web.Security;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.UI.WebControls.WebParts;
+using System.Web.UI.HtmlControls;
+using System.Net.Mail;
+using System.IO;
+using System.Text.RegularExpressions;
+using System.Security.Cryptography;
+
+
+public class Businesslogic
+
+{
+
+  
+
+    #region PASSWORD ENCRYPRION FUNCTION
+
+    public string xEncrPass = "TBL@HURIS";
+
+    public string Encryption(string clearText, string Password)
+    {
+        byte[] clearBytes = System.Text.Encoding.Unicode.GetBytes(clearText);
+        PasswordDeriveBytes pdb = new PasswordDeriveBytes(Password, new byte[] {
+		73,
+		118,
+		97,
+		110,
+		32,
+		77,
+		101,
+		100,
+		118,
+		101,
+		100,
+		101,
+		118
+	});
+        byte[] encryptedData = Encrypt(clearBytes, pdb.GetBytes(32), pdb.GetBytes(16));
+        return Convert.ToBase64String(encryptedData);
+    }
+
+    public string Decryption(string cipherText, string Password)
+    {
+
+        byte[] cipherBytes = Convert.FromBase64String(cipherText);
+        PasswordDeriveBytes pdb = new PasswordDeriveBytes(Password, new byte[] {
+		73,
+		118,
+		97,
+		110,
+		32,
+		77,
+		101,
+		100,
+		118,
+		101,
+		100,
+		101,
+		118
+	});
+        byte[] decryptedData = Decrypt(cipherBytes, pdb.GetBytes(32), pdb.GetBytes(16));
+        return System.Text.Encoding.Unicode.GetString(decryptedData);
+    }
+
+    public static byte[] Encrypt(byte[] clearData, byte[] Key, byte[] IV)
+    {
+        MemoryStream ms = new MemoryStream();
+        Rijndael alg = Rijndael.Create();
+        alg.Key = Key;
+        alg.IV = IV;
+        CryptoStream cs = new CryptoStream(ms, alg.CreateEncryptor(), CryptoStreamMode.Write);
+        cs.Write(clearData, 0, clearData.Length);
+        cs.Close();
+        byte[] encryptedData = ms.ToArray();
+        return encryptedData;
+    }
+
+    public static byte[] Decrypt(byte[] cipherData, byte[] Key, byte[] IV)
+    {
+        MemoryStream ms = new MemoryStream();
+        Rijndael alg = Rijndael.Create();
+        alg.Key = Key;
+        alg.IV = IV;
+        CryptoStream cs = new CryptoStream(ms, alg.CreateDecryptor(), CryptoStreamMode.Write);
+        cs.Write(cipherData, 0, cipherData.Length);
+        cs.Close();
+        byte[] decryptedData = ms.ToArray();
+
+        return decryptedData;
+    }
+
+    #endregion
+
+
+
+}

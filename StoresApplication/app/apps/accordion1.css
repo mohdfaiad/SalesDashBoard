@@ -1,0 +1,119 @@
+﻿
+
+
+.accordion1  
+{
+    font-size:8.5pt;
+    font-family:Tahoma;
+    /*background:url(../images/Accordian/item_bg.gif);*/
+}
+.accordion1 .header1 
+{
+    cursor:pointer;
+    background:  url(images/Accordian/item_bg_98.png) repeat-x;
+    border-bottom:solid 0px #57566f;
+    height: 30px;
+    margin-bottom: 2px;
+}
+.accordion1 .header1 DIV
+{
+    border-top:0px
+    cursor:pointer;
+    padding-left:30px;
+    background-color:Transparent;
+    background-position:center left;
+    background-repeat:no-repeat;
+    
+}
+.accordion1 .header1 SPAN
+{
+    cursor:pointer;
+    font-weight:bold;
+    display:block;
+    padding-top:8px;
+    color:Black;
+}        
+.accordion1 .header1:hover
+{
+    cursor:pointer;
+   
+    background:none;
+     background-color:#fde08c;
+    border-bottom:none;
+}                
+.accordion1 UL        
+{
+    padding:0;
+   /* margin:5px 5px 5px 15px;*/
+   margin: 0px;
+    list-style-type:none;
+}
+.accordion1 LI
+{
+    background-color:Transparent;
+    background-repeat:no-repeat;
+    background-position:5px center;
+    vertical-align:middle;
+    padding:5px 5px 5px 30px;
+    cursor:hand;
+    margin-bottom: 3px;
+    border:0px
+}
+.accordion1 LI a
+{
+    background-color:Transparent;
+    background-repeat:no-repeat;
+    background-position:5px center;
+    vertical-align:middle;
+    padding:5px 5px 5px 30px;
+    color: Black;
+    cursor:hand;
+    margin-bottom: 3px;
+}
+
+.accordionselected
+{
+    color:#f09e24;
+    border-bottom: 1px solid #A3A3A3;
+    font-weight:bold;
+     
+}
+
+.divtag
+{
+	background: url(Images/Accordian/competencies.png); 
+	background-position: 8px 5px;
+		border-top:0px;
+		display: block;
+		font-size: 11px; font-weight: normal;
+		color: #000; font-weight: bold;	
+		
+	}
+	
+	.divtag span
+	{
+	    padding-left:10px;
+	    }
+		
+	
+	
+.divtag a{font-weight: normal;}
+.divtag a:hover{font-weight: normal; background-color: #fde08c; text-decoration:underline;}
+	
+.litag
+{	
+background-position: left 10px;
+display:block;
+padding:5px 5px 5px 15px;
+
+}
+	
+.litag:hover
+{
+    text-decoration:underline;
+    background-color: #fde08c;
+    color: Black;   
+    border:0px;    
+}
+
+

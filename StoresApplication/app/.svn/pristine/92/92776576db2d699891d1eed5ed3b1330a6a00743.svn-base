@@ -1,0 +1,103 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class MonthlyPerformance : System.Web.UI.Page
+{
+    DatabaseHandler dh = new DatabaseHandler();
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        try
+        {
+            if (!IsPostBack)
+            {
+                GetProductType();
+                cboSearchType.SelectedIndex = 3;
+                
+            }
+        }
+        catch (Exception ex)
+        {
+            Message(ex.Message, true);
+        }
+    }
+    private void Message(string GetMessage, bool ColorRed)
+    {
+        Label msg = (Label)Master.FindControl("lblmsg");
+        msg.Visible = true;
+        if (ColorRed == true) { msg.ForeColor = System.Drawing.Color.Red; msg.Font.Bold = true; }
+        else { msg.ForeColor = System.Drawing.Color.Blue; msg.Font.Bold = true; }
+        msg.Text = "MESSAGE:  ............" + GetMessage + "............";
+    }
+    private void GetProductType()
+    {
+        try
+        {
+            cboSearchType0.DataSource = dh.GetProductType();
+            cboSearchType0.DataValueField = "Id";
+            cboSearchType0.DataTextField = "Name";
+            cboSearchType0.DataBind();
+        }
+        catch (Exception ex)
+        {
+            Message(ex.Message, true);
+
+        }
+    }
+    protected void ddlProductType_DataBound(object sender, EventArgs e)
+    {
+        cboSearchType0.Items.Insert(0, new ListItem("-- Select --", "0"));
+    }
+
+    protected void ddlProduct_DataBound(object sender, EventArgs e)
+    {
+        ddlProduct.Items.Insert(0, new ListItem("-- Select --", "0"));
+    }
+    protected void ddlProductType_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        
+        try
+        {
+            ddlProduct.DataSource = dh.GetProductById(int.Parse(cboSearchType0.SelectedValue));
+            ddlProduct.DataValueField = "ItemCode";
+            ddlProduct.DataTextField = "Description";
+            ddlProduct.DataBind();
+            DataGrid3.DataSource = dh.GetItemsReport(int.Parse(cboSearchType0.SelectedValue));
+            DataGrid3.DataBind();
+        }
+        catch (Exception ex)
+        {
+            Message(ex.Message, true);
+        }
+    }
+    protected void cboSearchType_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            if (cboSearchType.SelectedIndex == 0)
+            {
+                //Response.Redirect("PerformanceByProductType.aspx");
+            }
+            else if (cboSearchType.SelectedIndex == 1)
+            {
+                Response.Redirect("PerformanceByProductType.aspx");
+            }
+            else if (cboSearchType.SelectedIndex == 2 || cboSearchType.SelectedIndex == 3)
+            {
+                Response.Redirect("MonthlyPerformance.aspx");
+            }
+            else
+            {
+
+            }
+        }
+        catch (Exception ex)
+        {
+            Message(ex.Message, true);
+        }
+    }
+
+}
